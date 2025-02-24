@@ -91,8 +91,10 @@
 ✅ Caching, tối ưu hiệu suất với Redis, OPcache.
 ```
 
-🎯 Kế hoạch làm website học tiếng Anh trong 1 tháng
-✅ Tuần 1: Lên kế hoạch & Xây dựng cơ sở hạ tầng
+# 🎯 Kế hoạch làm website học tiếng Anh trong 1 tháng
+
+## ✅ Tuần 1: Lên kế hoạch & Xây dựng cơ sở hạ tầng
+
 Xác định chức năng chính của website
 
 Đăng ký / đăng nhập
@@ -110,7 +112,9 @@ Khởi tạo dự án PHP
 Tạo folder dự án với cấu trúc chuẩn (public, views, controllers, models, assets)
 Kết nối MySQL bằng PDO hoặc MySQLi
 Cài đặt Composer (nếu muốn sử dụng thư viện PHP)
-✅ Tuần 2: Xây dựng các tính năng chính
+
+## ✅ Tuần 2: Xây dựng các tính năng chính
+
 Xây dựng hệ thống người dùng
 
 Đăng ký, đăng nhập (sử dụng session/cookie)
@@ -125,7 +129,9 @@ Trang bài tập & kiểm tra
 Trắc nghiệm (A, B, C, D)
 Điền từ vào chỗ trống
 Hiển thị kết quả sau khi làm bài
-✅ Tuần 3: Hoàn thiện & Tối ưu
+
+## ✅ Tuần 3: Hoàn thiện & Tối ưu
+
 Hệ thống bình luận & diễn đàn
 
 Người dùng có thể bình luận bài học
@@ -139,7 +145,9 @@ Trang quản trị (nếu có)
 
 Thêm, chỉnh sửa, xóa bài học
 Quản lý bình luận và người dùng
-✅ Tuần 4: Kiểm tra, Triển khai & Bảo trì
+
+## ✅ Tuần 4: Kiểm tra, Triển khai & Bảo trì
+
 Kiểm tra toàn bộ hệ thống
 
 Test tất cả tính năng
@@ -152,7 +160,10 @@ Triển khai lên hosting
 
 Sử dụng XAMPP/Laragon để chạy local trước
 Deploy lên hosting (Hostinger, InfinityFree hoặc VPS nếu cần)
-📌 Danh sách trang (Dự kiến 20 trang)
+
+## 📌 Danh sách trang (Dự kiến 20 trang)
+
+```
 1️⃣ Trang chủ
 2️⃣ Đăng ký
 3️⃣ Đăng nhập
@@ -173,3 +184,4 @@ Deploy lên hosting (Hostinger, InfinityFree hoặc VPS nếu cần)
 1️⃣8️⃣ Quản lý người dùng (Admin)
 1️⃣9️⃣ Lịch sử học tập
 2️⃣0️⃣ Hỗ trợ & liên hệ
+```
