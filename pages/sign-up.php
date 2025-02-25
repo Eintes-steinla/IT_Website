@@ -25,39 +25,77 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../assets/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title>Log in</title>
+    <title>Sign up</title>
 </head>
 
 <body class="bg-gray-500 h-full font-[exo2-regular]">
-    <div class="relative sm:mx-auto py-3 w-full sm:max-w-xl">
+    <div class="relative sm:mx-auto py-3 sm:max-w-xl">
         <div
             class="relative bg-gray-800 shadow mx-8 md:mx-0 sm:p-10 px-4 py-10 rounded-3xl">
             <div class="mx-auto max-w-md text-white">
                 <div class="flex justify-center items-center">
                     <a href="../index.php"><img src="../assets/images/logo/logo.png" alt="Logo"></a>
                 </div>
-                <div class="mt-5">
-                    <label
-                        for="login"
-                        class="block pb-1 font-semibold text-gray-400 text-sm">E-mail</label>
-                    <input
-                        id="login"
-                        type="text"
-                        class="bg-gray-700 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-4 focus:ring-blue-500 w-full text-white text-sm" />
-                    <label
-                        for="password"
-                        class="block pb-1 font-semibold text-gray-400 text-sm">Password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        class="bg-gray-700 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-4 focus:ring-blue-500 w-full text-white text-sm" />
+                <div class="gap-5 grid grid-cols-1 sm:grid-cols-2 mt-5">
+                    <div>
+                        <label
+                            class="block pb-1 font-semibold text-gray-400 text-sm"
+                            for="fullname">Full Name</label>
+                        <input
+                            class="bg-gray-800 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 w-full text-white text-sm"
+                            type="text"
+                            id="fullname" />
+                    </div>
+                    <div>
+                        <label
+                            class="block pb-1 font-semibold text-gray-400 text-sm"
+                            for="email">Email</label>
+                        <input
+                            class="bg-gray-800 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 w-full text-white text-sm"
+                            type="email"
+                            id="email" />
+                    </div>
+                    <div>
+                        <label
+                            class="block pb-1 font-semibold text-gray-400 text-sm"
+                            for="username">Username</label>
+                        <input
+                            class="bg-gray-800 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 w-full text-white text-sm"
+                            type="text"
+                            id="username" />
+                    </div>
+                    <div>
+                        <label
+                            class="block pb-1 font-semibold text-gray-400 text-sm"
+                            for="password">Password</label>
+                        <input
+                            class="bg-gray-800 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 w-full text-white text-sm"
+                            type="password"
+                            id="password" />
+                    </div>
                 </div>
-                <div class="mb-4 text-right">
-                    <a
-                        href="#"
-                        class="font-display font-semibold text-gray-500 hover:text-gray-400 text-xs cursor-pointer">
-                        Forgot Password?
-                    </a>
+                <div class="gap-5 grid grid-cols-1 sm:grid-cols-2 mt-5">
+                    <div>
+                        <label
+                            class="block pb-1 font-semibold text-gray-400 text-sm"
+                            for="dob">Date of Birth</label>
+                        <input
+                            class="bg-gray-800 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 w-full text-white text-sm select-none"
+                            type="date"
+                            id="dob" />
+                    </div>
+                    <div>
+                        <label
+                            class="block pb-1 font-semibold text-gray-400 text-sm"
+                            for="gender">Gender</label>
+                        <select
+                            class="bg-gray-800 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-2 focus:ring-blue-500 w-full text-white text-sm"
+                            id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="flex justify-center items-center">
                     <div>
@@ -116,7 +154,7 @@
                                     d="M12,0.25c2.9750366,0,5.6829224,1.0983887,7.7792969,2.8916016l0.144165-0.1375122 l-0.110014-0.0958166C17.7089558,1.0843592,15.00354,0,12,0C5.3725586,0,0,5.3725586,0,12 c0,0.0421753,0.0058594,0.0828857,0.0062866,0.125C0.0740356,5.5558472,5.4147339,0.25,12,0.25z"
                                     fill="#FFF"></path>
                             </svg>
-                            <span class="ml-8">Sign in with Google</span>
+                            <span class="ml-2">Sign up with Google</span>
                         </button>
                         <button
                             class="flex justify-center items-center bg-white hover:bg-gray-200 shadow-md mt-4 px-20 py-2 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-blue-200 focus:ring-offset-2 w-full font-semibold text-gray-700 text-base text-center transition duration-200 ease-in">
@@ -130,22 +168,22 @@
                                 <path
                                     d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
                             </svg>
-                            <span class="ml-8">Sign in with Apple</span>
+                            <span class="ml-2">Sign up with Apple</span>
                         </button>
                     </div>
                 </div>
                 <div class="mt-5">
                     <button
-                        type="submit"
-                        class="bg-blue-600 hover:bg-blue-700 shadow-md px-4 py-2 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-blue-200 focus:ring-offset-2 w-full font-semibold text-white text-base text-center transition duration-200 ease-in">
-                        Log in
+                        class="bg-blue-600 hover:bg-blue-700 shadow-md px-4 py-2 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-blue-200 focus:ring-offset-2 w-full font-semibold text-white text-base text-center transition duration-200 ease-in"
+                        type="submit">
+                        Sign up
                     </button>
                 </div>
                 <div class="flex justify-between items-center mt-4">
                     <span class="dark:border-gray-600 border-b w-1/5 md:w-1/4"></span>
                     <a
-                        href="sign-up.php"
-                        class="text-gray-500 dark:text-gray-400 text-xs hover:underline uppercase">or sign up</a>
+                        class="text-gray-500 dark:text-gray-400 text-xs hover:underline uppercase"
+                        href="login.php">have an account? Log in</a>
                     <span class="dark:border-gray-600 border-b w-1/5 md:w-1/4"></span>
                 </div>
             </div>
