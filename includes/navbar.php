@@ -12,7 +12,7 @@
                 </a>
             </div>
             <!-- dropdown -->
-            <div class="hidden md:block">
+            <div class="hidden lg:block">
                 <ul class="flex items-center text-white uppercase text-nowrap">
                     <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
                         <a href="#" class="font-[exo2-bold]">courses</a>
@@ -27,7 +27,7 @@
                         </div>
                     </li>
                     <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                        <a href="#" class="font-[exo2-bold]">grammar</a>
+                        <a href="#" class="font-[exo2-bold]">self-learning</a>
                         <div class="group-hover:block hidden absolute bg-transparent -ml-2 pt-3">
                             <ul class="space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] px-2 py-2 rounded text-white normal-case">
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Basic Grammar</a></li>
@@ -43,7 +43,7 @@
                         </div>
                     </li>
                     <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                        <a href="#" class="font-[exo2-bold]">vocabulary</a>
+                        <a href="#" class="font-[exo2-bold]">news</a>
                         <div class="group-hover:block hidden absolute bg-transparent -ml-2 pt-3">
                             <ul class="space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] px-2 py-2 rounded text-white normal-case">
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Basic Vocabulary</a></li>
@@ -57,14 +57,14 @@
                         </div>
                     </li>
                     <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                        <a href="#" class="font-[exo2-bold]">library</a>
+                        <a href="#" class="font-[exo2-bold]">roadmaps</a>
                     </li>
                     <li class="hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                        <a href="#" class="font-[exo2-bold]">join us</a>
+                        <a href="#" class="font-[exo2-bold]">contact</a>
                     </li>
                 </ul>
             </div>
-            <div class="md:hidden px-2 py-1">
+            <div class="lg:hidden px-2 py-1">
                 <a href="#"
                     class="font-[exo2-extrabold] text-white uppercase">
                     Bao Minh
@@ -72,7 +72,7 @@
             </div>
         </div>
         <!-- search -->
-        <div class="hidden sm:block relative md:w-1/4" id="input">
+        <div class="hidden sm:block relative w-1/4" id="input">
             <input
                 value=""
                 placeholder="Search..."
@@ -138,7 +138,7 @@
                 </svg>
             </label>
             <!-- noti -->
-            <button class="hidden md:block">
+            <button class="hidden lg:block">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="26"
@@ -150,7 +150,7 @@
                 </svg>
             </button>
             <!-- user -->
-            <button id="user" class="hidden md:block relative hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
+            <button id="user" class="hidden lg:block relative hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
                 <a href="#">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -170,13 +170,13 @@
                     <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded">
                         <a href="../pages/sign-up.php" class="block px-2 py-1 w-full">Sign up</a>
                     </li>
-                    <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded">
+                    <li class="bg-red-600 hover:bg-red-500 border-r-2 border-red-400 border-b-2 rounded">
                         <a href="" class="block px-2 py-1 w-full">Log out</a>
                     </li>
                 </ul>
             </button>
             <!-- menu -->
-            <label class="md:hidden block hamburger">
+            <label class="lg:hidden block hamburger">
                 <input id="hamburger" type="checkbox">
                 <svg viewBox="0 0 32 32">
                     <path class="line-top-bottom line" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
@@ -189,7 +189,7 @@
     <div
         id="mobile-menu"
         style="height: calc(100vh - 64px);"
-        class="hidden md:hidden left-0 absolute bg-gray-800 p-4 border-t-2 border-t-gray-700 w-full">
+        class="hidden lg:hidden left-0 absolute bg-gray-800 p-4 border-t-2 border-t-gray-700 w-full">
         <!-- dropdown -->
         <div class="">
             <ul class="space-y-2 text-gray-200 uppercase text-nowrap">
