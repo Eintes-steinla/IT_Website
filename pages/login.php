@@ -43,14 +43,14 @@
                     <input
                         id="login"
                         type="text"
-                        class="bg-gray-700 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-4 focus:ring-blue-500 w-full text-white text-sm" />
+                        class="bg-gray-700 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-0 focus:ring-blue-500 w-full text-white text-sm" />
                     <label
                         for="password"
                         class="block pb-1 font-semibold text-gray-400 text-sm">Password</label>
                     <input
                         id="password"
                         type="password"
-                        class="bg-gray-700 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-4 focus:ring-blue-500 w-full text-white text-sm" />
+                        class="bg-gray-700 mt-1 mb-5 px-3 py-2 border focus:border-blue-500 rounded-lg focus:ring-0 focus:ring-blue-500 w-full text-white text-sm" />
                 </div>
                 <div class="mb-4 text-right">
                     <a
@@ -116,7 +116,7 @@
                                     d="M12,0.25c2.9750366,0,5.6829224,1.0983887,7.7792969,2.8916016l0.144165-0.1375122 l-0.110014-0.0958166C17.7089558,1.0843592,15.00354,0,12,0C5.3725586,0,0,5.3725586,0,12 c0,0.0421753,0.0058594,0.0828857,0.0062866,0.125C0.0740356,5.5558472,5.4147339,0.25,12,0.25z"
                                     fill="#FFF"></path>
                             </svg>
-                            <span class="ml-8">Sign in with Google</span>
+                            <span class="hidden md:block ml-8">Sign in with Google</span>
                         </button>
                         <button
                             class="flex justify-center items-center bg-white hover:bg-gray-200 shadow-md mt-4 px-20 py-2 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-blue-200 focus:ring-offset-2 w-full font-semibold text-gray-700 text-base text-center transition duration-200 ease-in">
@@ -130,7 +130,7 @@
                                 <path
                                     d="M25.565,9.785c-0.123,0.077-3.051,1.702-3.051,5.305c0.138,4.109,3.695,5.55,3.756,5.55 c-0.061,0.077-0.537,1.963-1.947,3.94C23.204,26.283,21.962,28,20.076,28c-1.794,0-2.438-1.135-4.508-1.135 c-2.223,0-2.852,1.135-4.554,1.135c-1.886,0-3.22-1.809-4.4-3.496c-1.533-2.208-2.836-5.673-2.882-9 c-0.031-1.763,0.307-3.496,1.165-4.968c1.211-2.055,3.373-3.45,5.734-3.496c1.809-0.061,3.419,1.242,4.523,1.242 c1.058,0,3.036-1.242,5.274-1.242C21.394,7.041,23.97,7.332,25.565,9.785z M15.001,6.688c-0.322-1.61,0.567-3.22,1.395-4.247 c1.058-1.242,2.729-2.085,4.17-2.085c0.092,1.61-0.491,3.189-1.533,4.339C18.098,5.937,16.488,6.872,15.001,6.688z"></path>
                             </svg>
-                            <span class="ml-8">Sign in with Apple</span>
+                            <span class="hidden md:block ml-8">Sign in with Apple</span>
                         </button>
                     </div>
                 </div>

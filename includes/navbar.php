@@ -39,7 +39,6 @@
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">English Sentence Structure</a></li>
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Parts of Speech</a></li>
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Conditional Sentences</a></li>
-                                <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Passive Voice & Active Voice</a></li>
                             </ul>
                         </div>
                     </li>
@@ -52,11 +51,8 @@
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Everyday Vocabulary</a></li>
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Business Vocabulary</a></li>
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Academic Vocabulary</a></li>
-                                <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Idioms & Phrases</a></li>
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Phrasal Verbs</a></li>
-                                <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Synonyms & Antonyms</a></li>
                                 <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Collocations</a></li>
-                                <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Slang & Informal English</a></li>
                             </ul>
                         </div>
                     </li>
@@ -154,7 +150,7 @@
                 </svg>
             </button>
             <!-- user -->
-            <button id="user" class="relative">
+            <button id="user" class="hidden md:block relative hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out">
                 <a href="#">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -167,15 +163,15 @@
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                     </svg>
                 </a>
-                <ul class="hidden right-0 absolute space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] mt-3 px-2 py-2 rounded text-white text-left normal-case text-nowrap">
+                <ul class="hidden right-0 z-50 absolute space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] mt-3 px-2 py-2 rounded text-white text-left normal-case text-nowrap">
                     <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded">
                         <a href="../pages/login.php" class="block px-2 py-1 w-full">Log in</a>
                     </li>
                     <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded">
-                        <a href="" class="block px-2 py-1 w-full">Log out</a>
+                        <a href="../pages/sign-up.php" class="block px-2 py-1 w-full">Sign up</a>
                     </li>
                     <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded">
-                        <a href="../pages/sign-up.php" class="block px-2 py-1 w-full">Sign up</a>
+                        <a href="" class="block px-2 py-1 w-full">Log out</a>
                     </li>
                 </ul>
             </button>
@@ -193,53 +189,110 @@
     <div
         id="mobile-menu"
         style="height: calc(100vh - 64px);"
-        class="hidden md:hidden left-0 absolute bg-gray-800 p-4 border-t-2 border-t-black w-full">
+        class="hidden md:hidden left-0 absolute bg-gray-800 p-4 border-t-2 border-t-gray-700 w-full">
         <!-- dropdown -->
         <div class="">
-            <ul class="space-y-2 text-white uppercase text-nowrap">
+            <ul class="space-y-2 text-gray-200 uppercase text-nowrap">
                 <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                    <a href="#">courses</a>
-                    <ul class="group-hover:block hidden z-50 absolute space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] mt-3 -ml-2 px-2 py-2 rounded text-white normal-case">
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Course for Beginners</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">College Entrance Prep</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">English for Professionals</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">TOEIC 700+</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">IELTS 7.0+</a></li>
-                    </ul>
+                    <a href="#" class="font-[exo2-bold]">courses</a>
+                    <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                        <ul class="space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] px-2 py-2 rounded text-white normal-case">
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Course for Beginners</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">College Entrance Prep</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">English for Professionals</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">TOEIC 700+</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">IELTS 7.0+</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                    <a href="#">grammar</a>
-                    <ul class="group-hover:block hidden z-50 absolute space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] mt-3 -ml-2 px-2 py-2 rounded text-white normal-case">
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Basic Grammar</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Advanced Grammar</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Grammar for Speaking</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Grammar for Writing</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Tenses Mastery</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Common Grammar Mistakes</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">English Sentence Structure</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Parts of Speech</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Conditional Sentences</a></li>
-                    </ul>
+                    <a href="#" class="font-[exo2-bold]">grammar</a>
+                    <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                        <ul class="space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] px-2 py-2 rounded text-white normal-case">
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Basic Grammar</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Advanced Grammar</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Grammar for Speaking</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Grammar for Writing</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Tenses Mastery</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Common Grammar Mistakes</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">English Sentence Structure</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Parts of Speech</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Conditional Sentences</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                    <a href="#">vocabulary</a>
-                    <ul class="group-hover:block hidden z-50 absolute space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] mt-3 -ml-2 px-2 py-2 rounded text-white normal-case">
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Basic Vocabulary</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Advanced Vocabulary</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Everyday Vocabulary</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Business Vocabulary</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Academic Vocabulary</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Phrasal Verbs</a></li>
-                        <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Collocations</a></li>
-                    </ul>
+                    <a href="#" class="font-[exo2-bold]">vocabulary</a>
+                    <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                        <ul class="space-y-2 bg-gray-700 shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)] px-2 py-2 rounded text-white normal-case">
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Basic Vocabulary</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Advanced Vocabulary</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Everyday Vocabulary</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Business Vocabulary</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Academic Vocabulary</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Phrasal Verbs</a></li>
+                            <li class="hover:bg-gray-600 border-gray-600 border-r-2 border-b-2 rounded"><a href="" class="block px-2 py-1 w-full">Collocations</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                    <a href="#">library</a>
+                    <a href="#" class="font-[exo2-bold]">library</a>
                 </li>
                 <li class="hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
-                    <a href="#">join us</a>
+                    <a href="#" class="font-[exo2-bold]">join us</a>
                 </li>
             </ul>
+        </div>
+        <!-- user -->
+        <div class="mt-4 border-gray-700 border-t-2">
+            <div class="flex justify-between items-center py-2">
+                <!-- user -->
+                <div class="flex items-center space-x-2">
+                    <button id="user" class="p-2 hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
+                        <a href="#">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="white"
+                                class="fill-white bi bi-person-circle"
+                                viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        </a>
+                    </button>
+                    <div class="space-y-1">
+                        <span class="block text-gray-100 text-sm leading-none">Bao Minh</span>
+                        <span class="block text-gray-300 text-xs leading-none">baominh@gmail.com</span>
+                    </div>
+                </div>
+                <!-- noti -->
+                <button class="p-2 hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out cursor-pointer">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="26"
+                        height="26"
+                        fill="white"
+                        class="bi bi-bell-fill"
+                        viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <ul class="space-y-2 text-gray-200 uppercase text-nowrap">
+                    <li class="group relative hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
+                        <a href="../pages/login.php" class="font-[exo2-bold]">Log in</a>
+                    </li>
+                    <li class="hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
+                        <a href="../pages/sign-up.php" class="font-[exo2-bold]">Sign up</a>
+                    </li>
+                    <li class="hover:bg-gray-700 px-2 py-1 rounded transition-all duration-200 ease-in-out">
+                        <a href="#" class="font-[exo2-bold]">Log out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
