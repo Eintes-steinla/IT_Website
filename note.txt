@@ -6,13 +6,5 @@ font-[exo2-extrabold]
 font-[exo2-semibold]
 
 px-2
-<li><a href="#">Listening</a></li>
-<li><a href="#">Speaking</a></li>
-<li><a href="#">Reading</a></li>
-<li><a href="#">Writing</a></li>
 
 icon 26px
-
-bg-gray-800
-
-shadow-[2.4px_2.4px_3.2px_rgba(0,0,0,0.15)]

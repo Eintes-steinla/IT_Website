@@ -1,0 +1,56 @@
+/* ! corlor ----------------------------------------------------------- */
+.bg-main {
+  background-color: #070f2b;
+}
+.bg-dropdown {
+  background-color: #1e2550;
+}
+.hover-dropdown:hover {
+  background-color: #3a4385;
+}
+.bg-input {
+  background-color: #291a42;
+}
+.bg-form {
+  background-color: #201236;
+}
+.border-input {
+  border-color: #8a2be2;
+}
+.text-normal {
+  color: #d4dfff;
+}
+.text-title {
+  color: #bfa3ff;
+}
+.hover-bg-title:hover {
+  background-color: #1e2550;
+}
+.text-dropdown {
+  color: #d4dfff;
+}
+.text-note {
+  color: #a8b2d1;
+}
+.hover-text-note:hover {
+  color: #d4dfff;
+}
+.icon {
+  fill: #c3a6ff;
+}
+.border-color {
+  border-color: #2e204d;
+}
+.button-bg {
+  background-color: #6a5cd8;
+}
+.button-bg:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 1); /* Hiệu ứng viền trắng */
+}
+.hover-button-bg:hover {
+  background-color: #7a6ff0;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(85%) sepia(10%) saturate(500%) hue-rotate(210deg);
+  cursor: pointer;
+}

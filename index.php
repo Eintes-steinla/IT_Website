@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/output.css">
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link id="theme-style" rel="stylesheet" href="./assets/css/darkmode.css">
 
     <!-- * favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicon/apple-icon-57x57.png">
@@ -27,11 +28,12 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./assets/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title>ENGLISH</title>
+    <title>BAO MINH</title>
 </head>
 
-<body class="bg-gray-500 h-full overflow-auto font-[exo2-regular]">
+<body class="h-full overflow-auto font-[exo2-regular]">
     <?php include './includes/navbar.php' ?>
+    <?php include './includes/header.php' ?>
 
     <script src="./assets/js/main.js"></script>
 </body>

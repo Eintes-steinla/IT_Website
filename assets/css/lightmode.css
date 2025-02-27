@@ -1,0 +1,43 @@
+/* ! corlor ----------------------------------------------------------- */
+.bg-main {
+  background-color: #fff;
+}
+.bg-dropdown {
+  background-color: #1e2550;
+}
+.hover-dropdown:hover {
+  background-color: #3a4385;
+}
+.bg-input {
+  background-color: #291a42;
+}
+.bg-form {
+  background-color: #201236;
+}
+.border-input {
+  border-color: #8a2be2;
+}
+.text-normal {
+  color: #000;
+}
+.text-title {
+  color: #000;
+}
+.hover-bg-title:hover {
+  background-color: #1e2550;
+}
+.text-dropdown {
+  color: #d4dfff;
+}
+.text-note {
+  color: #a8b2d1;
+}
+.hover-text-note:hover {
+  color: #d4dfff;
+}
+.icon {
+  fill: #c3a6ff;
+}
+.border-color {
+  border-color: #2e204d;
+}
