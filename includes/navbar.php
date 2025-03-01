@@ -66,7 +66,7 @@
             </div>
             <div class="lg:hidden px-2 py-1">
                 <a href="#"
-                    class="font-[exo2-extrabold] text-title uppercase">
+                    class="font-[exo2-extrabold] text-title uppercase text-nowrap">
                     Bao Minh
                 </a>
             </div>
@@ -297,4 +297,26 @@
             </div>
         </div>
     </div>
+    <script>
+        const user = document.getElementById("user");
+        const ulUser = user.querySelector("ul");
+
+        user.addEventListener("click", (event) => {
+            event.stopPropagation(); // Ngăn chặn sự kiện click lan ra ngoài
+            ulUser.classList.toggle("hidden");
+        });
+
+        // Khi click ra ngoài phần tử #user, ẩn ulUser
+        document.addEventListener("click", (event) => {
+            if (!user.contains(event.target)) {
+                ulUser.classList.add("hidden");
+            }
+        });
+
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobile-menu");
+        hamburger.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 </nav>

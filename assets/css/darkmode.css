@@ -45,7 +45,7 @@
   background-color: #6a5cd8;
 }
 .button-bg:focus {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 1); /* Hiệu ứng viền trắng */
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 1); /* Hiệu ứng viền trắng ring*/
 }
 .hover-button-bg:hover {
   background-color: #7a6ff0;
