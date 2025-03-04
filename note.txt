@@ -8,3 +8,7 @@ font-[exo2-semibold]
 px-2
 
 icon 26px
+
+<div class="bg-stars stars--small"></div>
+<div class="bg-stars stars--medium"></div>
+<div class="bg-stars stars--large"></div>

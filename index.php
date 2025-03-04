@@ -42,7 +42,7 @@
     <title>BAO MINH</title>
 </head>
 
-<body class="overflow-auto font-[exo2-regular]">
+<body class="font-[exo2-regular] space">
     <?php include './includes/navbar.php' ?>
     <?php include './includes/header.php' ?>
     <?php include './includes/back-to-top.php' ?>
