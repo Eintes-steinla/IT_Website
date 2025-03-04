@@ -45,6 +45,7 @@
 <body class="font-[exo2-regular] space">
     <?php include './includes/navbar.php' ?>
     <?php include './includes/header.php' ?>
+    <?php include './includes/footer.php' ?>
     <?php include './includes/back-to-top.php' ?>
 
     <script src="./assets/js/main.js"></script>

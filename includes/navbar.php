@@ -1,3 +1,4 @@
+<!-- Navbar Section -->
 <nav class="w-full h-16">
     <!-- * star -->
     <div class="bg-stars stars--small"></div>
