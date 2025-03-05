@@ -1,5 +1,5 @@
 <!-- Navbar Section -->
-<nav id="nav-bar" class="z-50 fixed shadow-md w-full h-16 transition-all duration-900 ease-in-out">
+<nav id="nav-bar" class="top-0 z-50 fixed shadow-md w-full h-16 transition-all duration-900 ease-in-out">
     <script>
         window.addEventListener("scroll", function() {
             let nav = document.getElementById("nav-bar");

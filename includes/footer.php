@@ -4,9 +4,9 @@
     <div class="bg-stars stars--medium"></div>
     <div class="bg-stars stars--large"></div>
 
-    <div class="gap-4 md:gap-2 grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-1 px-4 py-25 w-full h-full">
+    <div class="gap-4 md:gap-2 xl:gap-0 grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-1 px-4 py-15 md:py-25 w-full h-full">
         <div class="flex flex-col justify-center items-center">
-            <div class="group relative flex flex-col justify-between items-start gap-2 bg-neutral-900 hover:shadow-xl p-4 rounded-lg w-full max-w-[370px] h-56 hover:-translate-y-2 duration-500">
+            <div class="group relative flex flex-col justify-between items-start gap-2 bg-nav hover:shadow-xl p-4 rounded-lg w-full max-w-[370px] h-56 hover:-translate-y-2 duration-500">
                 <div
                     class="right-0 bottom-0 absolute bg-transparent shadow-md rounded-lg w-1/3 group-hover:-translate-y-2 group-hover:-translate-x-2 duration-700">
                     <img src="../assets/images/img/deku.png" alt="deku">
@@ -19,16 +19,22 @@
                         Iusto assumenda explicabo eaque reprehenderit. Facilis nostrum molestias cupiditate illum magnam aspernatur nemo, animi quos nesciunt similique rerum quaerat fugiat amet corrupti consectetur velit alias error possimus accusantium! Voluptatem, dolorum.
                     </p>
                 </div>
-                <button
-                    class="bg-gray-800 hover:bg-gray-700 mt-6 p-2 px-6 rounded text-gray-100">
-                    Explore
+                <!-- From Uiverse.io by adamgiebl -->
+                <button style="background: linear-gradient(to right, #8e2de2, #4a00e0);" class="relative border-none rounded-2xl overflow-hidden font-[exo2-bold] text-md text-normal active:scale-95 transition-all duration-300 ease-in-out cursor-pointer cssbuttons-io">
+                    <span class="inline-flex z-10 relative items-center px-4 py-3 transition-colors duration-500">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="fill-current mr-2 w-5 h-5">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
+                                fill="currentColor"></path>
+                        </svg>
+                        Code</span>
                 </button>
             </div>
-
         </div>
 
         <div class="flex flex-col justify-center items-center">
-            <div class="flex justify-center items-center bg-neutral-900 rounded-lg w-full max-w-[370px] h-full max-h-56 transition-all duration-300 ease-in-out">
+            <div class="flex justify-center items-center bg-nav rounded-lg w-full max-w-[370px] h-full max-h-56 transition-all duration-300 ease-in-out">
                 <!-- From Uiverse.io by Ashon-G -->
                 <!-- <svg
                     viewBox="0 0 128 128"
@@ -199,13 +205,13 @@
                     SMKY
                 </button>
                 <div
-                    class="group-hover:[clip-path:polygon(50%_0%,_100%_0,_0_0)] absolute bg-neutral-800 [clip-path:polygon(50%_50%,_100%_0,_0_0)] w-full h-full transition-all duration-1000 group-hover:duration-100 tp"></div>
+                    class="group-hover:[clip-path:polygon(50%_0%,_100%_0,_0_0)] absolute bg-[#1c132e] [clip-path:polygon(50%_50%,_100%_0,_0_0)] w-full h-full transition-all duration-1000 group-hover:duration-100 tp"></div>
                 <div
-                    class="absolute bg-neutral-900 [clip-path:polygon(50%_50%,_0_0,_0_100%)] w-full h-full transition-all duration-700 lft"></div>
+                    class="absolute bg-[#191129] [clip-path:polygon(50%_50%,_0_0,_0_100%)] w-full h-full transition-all duration-700 lft"></div>
                 <div
-                    class="absolute bg-neutral-800 [clip-path:polygon(50%_50%,_100%_0,_100%_100%)] w-full h-full transition-all duration-700 rgt"></div>
+                    class="absolute bg-[#161024] [clip-path:polygon(50%_50%,_100%_0,_100%_100%)] w-full h-full transition-all duration-700 rgt"></div>
                 <div
-                    class="absolute bg-neutral-900 [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] w-full h-full transition-all duration-700 btm"></div>
+                    class="absolute bg-[#161024] [clip-path:polygon(50%_50%,_100%_100%,_0_100%)] w-full h-full transition-all duration-700 btm"></div>
             </div>
         </div>
     </div>

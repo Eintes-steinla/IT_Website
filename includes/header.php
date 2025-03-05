@@ -1,5 +1,5 @@
 <!-- Header Section -->
-<header class="relative w-full">
+<header class="relative mt-16 w-full">
     <!-- * star -->
     <div class="bg-stars stars--small"></div>
     <div class="bg-stars stars--medium"></div>
