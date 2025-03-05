@@ -68,43 +68,43 @@
             </div>
 
             <form action="" class="flex flex-col space-y-2">
-                <div class="space-y-2 grid md:grid-cols-[1fr_2fr]">
-                    <label for="fullname" class="pl-2 font-[exo2-bold]">Full Name</label>
+                <div class="space-y-2 grid sm:grid-cols-[1fr_2fr]">
+                    <label for="fullname" class="pl-2 md:pl-0 font-[exo2-bold]">Full Name</label>
                     <input
                         type="text"
                         name="fullname"
                         id="fullname"
                         class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
-                    <label for="username" class="pl-2 font-[exo2-bold]">Username</label>
+                    <label for="username" class="pl-2 md:pl-0 font-[exo2-bold]">Username</label>
                     <input
                         type="text"
                         name="username"
                         id="username"
                         class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
-                    <label for="email" class="pl-2 font-[exo2-bold]">E-mail</label>
+                    <label for="email" class="pl-2 md:pl-0 font-[exo2-bold]">E-mail</label>
                     <input
                         type="email"
                         name="email"
                         id="email"
                         class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
-                    <label for="password" class="pl-2 font-[exo2-bold]">Password</label>
+                    <label for="password" class="pl-2 md:pl-0 font-[exo2-bold]">Password</label>
                     <input
                         type="password"
                         name="password"
                         id="password"
                         class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
-                    <label for="date" class="pl-2 font-[exo2-bold]">Date of Birth</label>
+                    <label for="date" class="pl-2 md:pl-0 font-[exo2-bold]">Date of Birth</label>
                     <input
                         type="date"
                         name="date"
                         id="date"
                         class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
-                    <label for="gender" class="pl-2 font-[exo2-bold]">Gender</label>
+                    <label for="gender" class="pl-2 md:pl-0 font-[exo2-bold]">Gender</label>
                     <div id="gender" class="flex justify-evenly items-center bg-input mb-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
                         <div class="flex items-end gap-1">
                             <label for="male" class="leading-none">Male</label>

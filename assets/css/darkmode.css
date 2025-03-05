@@ -91,7 +91,9 @@
     opacity: 0;
   }
 }
-
+.bg-nav {
+  background: linear-gradient(180deg, #120e1e, #1d1439ce);
+}
 .bg-dropdown {
   background-color: #1e2550;
 }

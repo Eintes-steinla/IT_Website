@@ -1,5 +1,17 @@
 <!-- Navbar Section -->
-<nav class="w-full h-16">
+<nav id="nav-bar" class="z-50 fixed shadow-md w-full h-16 transition-all duration-900 ease-in-out">
+    <script>
+        window.addEventListener("scroll", function() {
+            let nav = document.getElementById("nav-bar");
+            let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+            if (scrollPosition >= 100) {
+                nav.classList.add("bg-nav");
+            } else {
+                nav.classList.remove("bg-nav");
+            }
+        });
+    </script>
     <!-- * star -->
     <div class="bg-stars stars--small"></div>
     <div class="bg-stars stars--medium"></div>
@@ -83,7 +95,7 @@
                 <input
                     value=""
                     placeholder="Search..."
-                    class="peer block bg-input px-4 pr-[48px] border border-[#8a2be2] invalid:focus:border-error-500 invalid:border-error-500 focus:border-transparent hover:border-brand-500-secondary- rounded-[8px] focus:outline-2 focus:outline-primary focus:ring-0 w-full h-[35px] overflow-ellipsis overflow-hidden text-normal text-sm text-nowrap appearance-none"
+                    class="peer block bg-input px-4 pr-[48px] border border-[#8a2be2] invalid:focus:border-error-500 invalid:border-error-500 focus:border-transparent hover:border-brand-500-secondary- rounded-[8px] focus:outline-1 focus:outline-primary focus:ring-0 w-full h-[35px] overflow-ellipsis overflow-hidden text-normal text-sm text-nowrap appearance-none"
                     id="floating_outlined"
                     type="text" />
                 <label
@@ -91,7 +103,7 @@
                     for="floating_outlined">
                     Searching...
                 </label>
-                <div class="top-1.5 right-3 absolute">
+                <button class="top-1.5 right-3 absolute active:scale-95 transition-all duration-100 ease-in-out cursor-pointer">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill=""
@@ -109,7 +121,7 @@
                             y="14.8859"
                             x="12.2469"></rect>
                     </svg>
-                </div>
+                </button>
             </div>
             <!-- user -->
             <div class="flex items-center gap-4">
