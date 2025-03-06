@@ -104,35 +104,48 @@
                         id="date"
                         class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
+                    <!-- * gender -->
                     <label for="gender" class="pl-2 md:pl-0 font-[exo2-bold]">Gender</label>
-                    <div id="gender" class="flex justify-evenly items-center bg-input mb-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
-                        <div class="flex items-end gap-1">
-                            <label for="male" class="leading-none">Male</label>
+                    <div
+                        class="flex justify-evenly items-center mb-4 rounded-lg w-full h-8">
+                        <div class="relative flex justify-center items-center w-[30px] h-[30px]">
                             <input
                                 type="radio"
+                                id="radio"
                                 name="gender"
-                                id="male"
-                                checked="checked"
-                                class="bg-input border-[1px] border-input focus:outline-none cursor-pointer">
+                                value="male"
+                                class="peer z-10 opacity-0 w-full h-full cursor-pointer" />
+                            <div class="absolute bg-blue-100 p-4 rounded-full ring-blue-400 peer-checked:ring-1 w-full h-full peer-checked:scale-105 duration-300"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="" class="absolute fill-blue-400" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8" />
+                            </svg>
                         </div>
-                        <div class="flex items-end gap-1">
-                            <label for="female" class="leading-none">Female</label>
+
+                        <div class="relative flex justify-center items-center w-[30px] h-[30px]">
                             <input
                                 type="radio"
+                                id="radio"
                                 name="gender"
-                                id="female"
-                                class="bg-input border-[1px] border-input focus:outline-none cursor-pointer">
+                                value="female"
+                                class="peer z-10 opacity-0 w-full h-full cursor-pointer" />
+                            <div class="absolute bg-pink-100 p-2 rounded-full ring-pink-400 peer-checked:ring-1 w-full h-full peer-checked:scale-105 duration-300"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="" class="absolute fill-pink-400" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8M3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5" />
+                            </svg>
                         </div>
-                        <div class="flex items-end gap-1">
-                            <label for="other" class="leading-none">Other</label>
+
+                        <div class="relative flex justify-center items-center w-[30px] h-[30px]">
                             <input
                                 type="radio"
                                 name="gender"
-                                id="other"
-                                class="bg-input border-[1px] border-input focus:outline-none cursor-pointer">
+                                value="other"
+                                class="peer z-10 opacity-0 w-full h-full cursor-pointer" />
+                            <div class="absolute bg-neutral-100 p-2 rounded-full ring-neutral-400 peer-checked:ring-1 w-full h-full peer-checked:scale-105 duration-300"></div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill=" " class="absolute fill-gray-400" viewBox="0 0 16 16">
+                                <path class="stroke-[0.1px] stroke-gray-400" d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
+                            </svg>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="flex justify-end mb-4"><a href="#" class="block w-fit hover-text-note text-note text-sm">Forgot Password?</a></div>
