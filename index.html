@@ -9,8 +9,21 @@
 
     <style></style>
   </head>
-  <body class="bg-main">
-    <div></div>
-    <script></script>
+  <body class="">
+    <div class="flex justify-center items-center w-full h-[100vh]">
+      <div id="course" class="flex justify-center items-center gap-2"></div>
+    </div>
+    <script>
+      const courses = [{ name: "Minh" }, { name: "Tan" }, { name: "Manh" }];
+
+      const course = document.getElementById("course");
+
+      courses.forEach((item) => {
+        const div = document.createElement("div");
+        div.innerHTML = `<div>${item.name}</div>`;
+
+        course.appendChild(div);
+      });
+    </script>
   </body>
 </html>

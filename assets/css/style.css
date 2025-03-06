@@ -404,6 +404,10 @@ body {
   }
 }
 
+.bg-card {
+  background: linear-gradient(-30deg, #120e1e, #271950);
+}
+
 /* * back to top */
 .space {
   background: linear-gradient(160deg, #120e1e, #271950);
@@ -621,4 +625,16 @@ body {
 
 .cssbuttons-io:hover::before {
   transform: translate3d(100%, 0, 0);
+}
+
+button:hover .instagram-gradient {
+  opacity: 100%;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
 }
