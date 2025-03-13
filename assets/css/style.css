@@ -1,5 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
 
+@font-face {
+  font-family: "exo2-regular";
+  src: url("../fonts/static/Exo2-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "exo2-bold";
+  src: url("../fonts/static/Exo2-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "exo2-italic";
+  src: url("../fonts/static/Exo2-Italic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "exo2-bolditalic";
+  src: url("../fonts/static/Exo2-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "exo2-extrabold";
+  src: url("../fonts/static/Exo2-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "exo2-semibold";
+  src: url("../fonts/static/Exo2-SemiBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -25,6 +67,18 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #33265a, #402c7dce);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: transparent !important;
+  transition: background-color 99999s ease-in-out 0s;
+  color: #d4dfff !important;
+  -webkit-text-fill-color: #d4dfff !important;
+  caret-color: #d4dfff;
+  font-family: "exo2-regular" !important;
 }
 
 /* ! nav ------------------------------------------------------------- */

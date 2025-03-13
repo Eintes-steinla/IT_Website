@@ -1,3 +1,47 @@
+<?php
+session_start();
+
+// Nếu đã đăng nhập, chuyển hướng về profile.php
+if (isset($_SESSION['email'])) {
+    header('Location: profile.php');
+    exit();
+}
+
+// Kiểm tra nếu form được gửi
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'];
+
+    // Kiểm tra xem session `users` có tồn tại không
+    if (!isset($_SESSION['users'])) {
+        $_SESSION['error'] = "Không có tài khoản nào được đăng ký!";
+        header("Location: login.php");
+        exit();
+    }
+
+    $foundUser = null;
+
+    // Duyệt qua danh sách users để kiểm tra đăng nhập
+    foreach ($_SESSION['users'] as $user) {
+        if ($user['email'] === $email && password_verify($password, $user['password'])) {
+            $foundUser = $user;
+            break;
+        }
+    }
+
+    if ($foundUser) {
+        $_SESSION['email'] = $foundUser['email'];
+        $_SESSION['username'] = $foundUser['username']; // Lưu thêm username nếu cần
+        header('Location: ../index.php');
+        exit();
+    } else {
+        $_SESSION['error'] = "Sai thông tin đăng nhập!";
+        header("Location: login.php"); // Chuyển hướng lại để tránh lỗi resubmission
+        exit();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,28 +104,32 @@
             <span class="blur-[4.5px] star" style="--i: 6"></span>
         </div>
 
-        <div class="space-y-4 bg-form mx-4 p-4 rounded-3xl w-full min-w-[300px] max-w-[400px] text-normal">
+        <div class="relative space-y-4 bg-form mx-4 p-4 rounded-3xl w-full min-w-[300px] max-w-[400px] text-normal">
             <div class="flex justify-center items-center">
                 <button class="cursor-pointer">
                     <a href="../index.php"><img src="../assets/images/logo/logo.png" alt="logo"></a>
                 </button>
             </div>
 
-            <form action="" class="flex flex-col space-y-2">
-                <label for="email" class="pl-2 font-[exo2-bold]">E-mail</label>
+            <form action="login.php"
+                id="login-form"
+                method="post"
+                class="flex flex-col space-y-2">
+                <label for="email" id="label-email" class="relative pl-2 font-[exo2-bold]">E-mail</label>
                 <input
-                    type="email"
-                    name="email"
                     id="email"
+                    type="text"
+                    name="email"
+                    placeholder="@gmail.com"
                     class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
                 <!-- * input password -->
-                <label for="password" class="pl-2 font-[exo2-bold]">Password</label>
+                <label for="password" id="label-password" class="pl-2 font-[exo2-bold]">Password</label>
                 <div class="relative w-full">
                     <input
+                        id="password"
                         type="password"
                         name="password"
-                        id="password"
                         class="bg-input mb-4 py-2 pr-10 pl-2 border-[1px] border-input rounded-lg focus:outline-none w-full h-8">
 
                     <svg
@@ -151,8 +199,45 @@
 
                 <button
                     type="submit"
+                    id="submit"
+                    name="login"
                     class="rounded-lg focus:outline-none h-8 font-[exo2-bold] text-normal cursor-pointer hover-button-bg button-bg">Log in</button>
             </form>
+
+            <script>
+                document.getElementById("login-form").addEventListener("submit", (e) => {
+                    const email = document.getElementById("email").value;
+                    const password = document.getElementById("password").value;
+                    const labelEmail = document.getElementById("label-email");
+                    const labelPassword = document.getElementById("label-password");
+
+                    // * email
+                    if (email === "") {
+                        labelEmail.innerHTML = "E-mail <span class='text-red-400 text-xs'>Email is required</span>";
+                        e.preventDefault();
+                    } else {
+                        labelEmail.innerHTML = "E-mail";
+                    }
+
+                    // else if (email !== "baominh@gmail.com") {
+                    //     labelEmail.innerHTML = "E-mail <span class='text-red-400 text-xs'>Email does not exit</span>";
+                    //     e.preventDefault();
+                    // } 
+
+                    // * password
+                    if (password === "") {
+                        labelPassword.innerHTML = "Password <span class='text-red-400 text-xs'>Password is required</span>";
+                        e.preventDefault();
+                    } else {
+                        labelPassword.innerHTML = "Password";
+                    }
+
+                    // else if (password !== "12345678") {
+                    //     labelPassword.innerHTML = "Password <span class='text-red-400 text-xs'>Password is incorrect</span>";
+                    //     e.preventDefault();
+                    // }
+                });
+            </script>
 
             <p class="text-note text-sm text-center">Don't have an account? <a href="sign-up.php" class="hover-text-note">Register</a></p>
         </div>

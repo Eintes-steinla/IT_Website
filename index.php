@@ -1,3 +1,13 @@
+<?php
+// if (isset($_GET['page'])) {
+//     switch ($_GET['page']) {
+//         case 'login':
+//             include '../pages/login.php';
+//             break;
+//     }
+// }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

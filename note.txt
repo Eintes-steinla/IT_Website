@@ -12,3 +12,25 @@ icon 26px
 <div class="bg-stars stars--small"></div>
 <div class="bg-stars stars--medium"></div>
 <div class="bg-stars stars--large"></div>
+
+
+loi sign up
+<!-- Hiển thị lỗi -->
+<?php if (!empty($_SESSION['error'])) : ?>
+    <p style="color: red;"><?php echo $_SESSION['error'];
+                            unset($_SESSION['error']); ?></p>
+<?php endif; ?>
+
+<!-- Hiển thị thông báo thành công -->
+<?php if (!empty($_SESSION['success'])) : ?>
+    <p style="color: green;"><?php echo $_SESSION['success'];
+                                unset($_SESSION['success']); ?></p>
+<?php endif; ?>
+
+
+log login
+<!-- Hiển thị lỗi -->
+<?php if (!empty($_SESSION['error'])) : ?>
+    <p style="color: red;"><?php echo $_SESSION['error'];
+                            unset($_SESSION['error']); ?></p>
+<?php endif; ?>

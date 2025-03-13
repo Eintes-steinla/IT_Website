@@ -42,7 +42,24 @@
     <title>Loading</title>
 </head>
 
-<body class="bg-main font-[exo2-regular]">
+<body class="font-[exo2-regular] space">
+    <!-- * star -->
+    <div class="bg-stars stars--small"></div>
+    <div class="bg-stars stars--medium"></div>
+    <div class="bg-stars stars--large"></div>
+
+    <!-- starball -->
+    <div
+        class="-z-1 absolute flex gap-15 md:gap-35 w-full h-full overflow-hidden">
+        <span class="blur-[4.5px] star" style="--i: 31"></span>
+        <span class="blur-[4.5px] star" style="--i: 12"></span>
+        <span class="blur-[4.5px] star" style="--i: 57"></span>
+        <span class="blur-[4.5px] star" style="--i: 93"></span>
+        <span class="blur-[4.5px] star" style="--i: 23"></span>
+        <span class="blur-[4.5px] star" style="--i: 70"></span>
+        <span class="blur-[4.5px] star" style="--i: 6"></span>
+    </div>
+
     <div class="flex justify-center items-center w-full h-[100vh]">
         <!-- From Uiverse.io by StealthWorm -->
         <div class="loader">
