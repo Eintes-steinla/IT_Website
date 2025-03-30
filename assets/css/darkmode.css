@@ -2,7 +2,9 @@
 .bg-main {
   background-color: #070f2b;
   position: relative;
-  /* overflow: hidden; */
+}
+.bg-main-nav {
+  background-color: #070f2b;
 }
 .bg-stars {
   position: absolute;

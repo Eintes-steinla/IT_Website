@@ -34,3 +34,6 @@ log login
     <p style="color: red;"><?php echo $_SESSION['error'];
                             unset($_SESSION['error']); ?></p>
 <?php endif; ?>
+
+connect to database
+mysql -u root -p

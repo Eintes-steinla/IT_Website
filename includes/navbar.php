@@ -1,32 +1,38 @@
 <?php
 session_start();
 // xoa email cua ng dung
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // nhan nut logout  
-    if (isset($_POST['logout'])) {
-        if (isset($_SESSION['email'])) {
-            unset($_SESSION['email']);
-
-            header("Location: ./pages/login.php");
-            exit();
-        }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
+    // Xóa session khi người dùng đăng xuất
+    if (isset($_SESSION['email'])) {
+        unset($_SESSION['email']);
     }
+    if (isset($_SESSION['username'])) {
+        unset($_SESSION['username']);
+    }
+    if (isset($_SESSION['isAdmin'])) {
+        unset($_SESSION['isAdmin']);
+    }
+
+    // Xóa cookie khi người dùng đăng xuất
+    if (isset($_COOKIE['email'])) {
+        setcookie("email", "", time() - 3600, "/");
+    }
+    if (isset($_COOKIE['username'])) {
+        setcookie("username", "", time() - 3600, "/");
+    }
+    if (isset($_COOKIE["isAdmin"])) {
+        setcookie("isAdmin", "", time() - 3600, "/");
+    }
+
+    if (!isset($_SESSION['username']) && !isset($_SESSION['email'])) {
+        header("Location: ./pages/login.php");
+    }
+    exit();
 }
 ?>
+
 <!-- Navbar Section -->
 <nav id="nav-bar" class="top-0 z-50 fixed shadow-md w-full h-16 transition-all duration-900 ease-in-out">
-    <script>
-        window.addEventListener("scroll", function() {
-            let nav = document.getElementById("nav-bar");
-            let scrollPosition = window.scrollY || document.documentElement.scrollTop;
-
-            if (scrollPosition >= 100) {
-                nav.classList.add("bg-nav");
-            } else {
-                nav.classList.remove("bg-nav");
-            }
-        });
-    </script>
     <!-- * star -->
     <div class="bg-stars stars--small"></div>
     <div class="bg-stars stars--medium"></div>
@@ -50,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <ul class="flex items-center text-title uppercase text-nowrap">
                         <li class="group relative hover-bg-title px-2 py-1 rounded transition-all duration-200 ease-in-out">
                             <a href="#" class="font-[exo2-bold]">courses</a>
-                            <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                            <div class="hidden group-hover:block z-50 absolute bg-transparent -ml-2 pt-3">
                                 <ul class="space-y-2 bg-dropdown px-2 py-2 rounded text-dropdown normal-case">
                                     <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Course for Beginners</a></li>
                                     <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">College Entrance Prep</a></li>
@@ -62,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </li>
                         <li class="group relative hover-bg-title px-2 py-1 rounded transition-all duration-200 ease-in-out">
                             <a href="#" class="font-[exo2-bold]">self-learning</a>
-                            <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                            <div class="hidden group-hover:block z-50 absolute bg-transparent -ml-2 pt-3">
                                 <ul class="space-y-2 bg-dropdown px-2 py-2 rounded text-dropdown normal-case">
                                     <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Basic Grammar</a></li>
                                     <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Advanced Grammar</a></li>
@@ -78,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </li>
                         <li class="group relative hover-bg-title px-2 py-1 rounded transition-all duration-200 ease-in-out">
                             <a href="#" class="font-[exo2-bold]">news</a>
-                            <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                            <div class="hidden group-hover:block z-50 absolute bg-transparent -ml-2 pt-3">
                                 <ul class="space-y-2 bg-dropdown px-2 py-2 rounded text-dropdown normal-case">
                                     <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Basic Vocabulary</a></li>
                                     <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Advanced Vocabulary</a></li>
@@ -110,12 +116,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form action="../pages/course.php" method="get">
                     <input
                         placeholder="Search..."
-                        class="peer block bg-input px-4 pr-[48px] border border-[#8a2be2] invalid:focus:border-error-500 invalid:border-error-500 focus:border-transparent hover:border-brand-500-secondary- rounded-[8px] focus:outline-1 focus:outline-primary focus:ring-0 w-full h-[35px] overflow-ellipsis overflow-hidden text-normal text-sm text-nowrap appearance-none"
+                        class="peer block bg-input px-4 pr-[48px] border border-[#8a2be2] invalid:border-error-500 invalid:focus:border-error-500 focus:border-transparent hover:border-brand-500-secondary- rounded-[8px] focus:outline-1 focus:outline-primary focus:ring-0 w-full h-[35px] overflow-ellipsis overflow-hidden text-normal text-sm text-nowrap appearance-none"
                         id="search"
                         name="search"
                         type="text" />
                     <label
-                        class="rtl:peer-focus:left-auto peer-focus:z-10 peer-focus:px-2 peer-focus:top-2 peer-placeholder-shown:-z-10 peer-placeholder-shown:top-1/2 top-2 z-10 absolute data-[disabled]:bg-gray-50-background- px-2 rounded text-[14px] text-normal text-primary peer-focus:text-primary focus:invalid:text-error-500 peer-invalid:text-error-500 leading-[150%] scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-[1.2rem] rtl:peer-focus:translate-x-1/4 peer-focus:-translate-y-[1.2rem] peer-placeholder-shown:-translate-y-1/2 duration-300 transform start-1"
+                        class="top-2 peer-focus:top-2 peer-placeholder-shown:top-1/2 rtl:peer-focus:left-auto z-10 peer-focus:z-10 peer-placeholder-shown:-z-10 absolute data-[disabled]:bg-gray-50-background- px-2 peer-focus:px-2 rounded text-[14px] text-normal text-primary focus:invalid:text-error-500 peer-focus:text-primary peer-invalid:text-error-500 leading-[150%] scale-75 peer-focus:scale-75 peer-placeholder-shown:scale-100 origin-[0] -translate-y-[1.2rem] rtl:peer-focus:translate-x-1/4 peer-focus:-translate-y-[1.2rem] peer-placeholder-shown:-translate-y-1/2 duration-300 transform start-1"
                         for="search">
                         Searching...
                     </label>
@@ -232,7 +238,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     });
                 </script>
                 <!-- menu -->
-                <label class="md:hidden block hamburger">
+                <label for="hamburger" class="md:hidden block hamburger">
                     <input type="checkbox" id="hamburger">
                     <svg viewBox="0 0 32 32">
                         <path class="line-top-bottom line" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
@@ -242,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
-    <!-- mobile nav -->
+    <!-- * mobile nav -->
     <div
         id="mobile-menu"
         style="height: calc(100vh - 64px);"
@@ -252,7 +258,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul class="space-y-2 text-normal uppercase text-nowrap">
                 <li class="group relative hover-bg-title px-2 py-1 rounded transition-all duration-200 ease-in-out">
                     <a href="#" class="font-[exo2-bold]">courses</a>
-                    <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                    <div class="hidden group-hover:block z-50 absolute bg-transparent -ml-2 pt-3">
                         <ul class="space-y-2 bg-dropdown px-2 py-2 rounded text-dropdown normal-case">
                             <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Course for Beginners</a></li>
                             <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">College Entrance Prep</a></li>
@@ -264,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
                 <li class="group relative hover-bg-title px-2 py-1 rounded transition-all duration-200 ease-in-out">
                     <a href="#" class="font-[exo2-bold]">grammar</a>
-                    <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                    <div class="hidden group-hover:block z-50 absolute bg-transparent -ml-2 pt-3">
                         <ul class="space-y-2 bg-dropdown px-2 py-2 rounded text-dropdown normal-case">
                             <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Basic Grammar</a></li>
                             <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Advanced Grammar</a></li>
@@ -280,7 +286,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
                 <li class="group relative hover-bg-title px-2 py-1 rounded transition-all duration-200 ease-in-out">
                     <a href="#" class="font-[exo2-bold]">vocabulary</a>
-                    <div class="group-hover:block hidden z-50 absolute bg-transparent -ml-2 pt-3">
+                    <div class="hidden group-hover:block z-50 absolute bg-transparent -ml-2 pt-3">
                         <ul class="space-y-2 bg-dropdown px-2 py-2 rounded text-dropdown normal-case">
                             <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Basic Vocabulary</a></li>
                             <li class="border-r-2 border-b-2 rounded hover-dropdown"><a href="" class="block px-2 py-1 w-full">Advanced Vocabulary</a></li>
@@ -352,5 +358,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
+    <!-- hamburger -->
+    <script>
+        const mobileNav = document.getElementById("mobile-menu");
+        let nav = document.getElementById("nav-bar");
+        const hamburger = document.getElementById("hamburger");
 
+        function updateNavBackground() {
+            let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+            if (hamburger.checked) {
+                nav.classList.remove("bg-nav");
+                nav.classList.add("bg-main-nav");
+            } else {
+                if (scrollPosition >= 100) {
+                    nav.classList.remove("bg-main-nav");
+                    nav.classList.add("bg-nav");
+                } else {
+                    nav.classList.remove("bg-nav");
+                    nav.classList.remove("bg-main-nav");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", updateNavBackground);
+
+        hamburger.addEventListener('change', () => {
+            if (hamburger.checked) {
+                mobileNav.classList.remove("hidden");
+            } else {
+                mobileNav.classList.add("hidden");
+            }
+            updateNavBackground(); // Update background when hamburger state changes
+        });
+    </script>
 </nav>

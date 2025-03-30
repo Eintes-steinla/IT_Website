@@ -5,25 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/darkmode.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
-    <style></style>
   </head>
-  <body class="">
-    <div class="flex justify-center items-center w-full h-[100vh]">
-      <div id="course" class="flex justify-center items-center gap-2"></div>
+  <body class="space">
+    <div class="flex justify-center items-center h-screen">
+      <!-- Card 1 -->
+      <div
+        class="group left-0 relative flex bg-[#2b223f] shadow-[-1rem_0_3rem_#00000044] hover:shadow-lg -ml-20 rounded-lg w-70 h-70 transition-all hover:translate-y-[-20px] duration-400 ease-out"
+      >
+        <div class="top-4 left-5 absolute font-extrabold text-white text-2xl">
+          Cpp
+        </div>
+        <div class="top-16 absolute p-5 text-[#eae0fd] text-xs">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </div>
+        <button
+          class="top-48 absolute bg-[#4a2f7c] hover:bg-[#8a4ff8] hover:shadow-[0px_0px_20px_rgba(157,71,255,0.5),0px_5px_5px_-1px_rgba(163,58,233,0.25),inset_4px_4px_8px_rgba(219,175,255,0.5),inset_-4px_-4px_8px_rgba(137,19,216,0.35)] mx-5 border-none rounded-lg w-30 h-8 text-white hover:text-white transition-all duration-400 ease-out cursor-pointer"
+        >
+          Learn more
+        </button>
+        <div class="top-64 relative w-full h-1.5">
+          <div class="bg-[#201c29] w-full h-full"></div>
+          <div
+            class="top-0 z-10 absolute bg-[#d059ff] bg-gradient-to-r from-[#6831cfab] to-[#a777ff] w-0 group-hover:w-full h-full transition-all duration-600 group-hover:duration-400 ease-out"
+          ></div>
+        </div>
+      </div>
     </div>
-    <script>
-      const courses = [{ name: "Minh" }, { name: "Tan" }, { name: "Manh" }];
-
-      const course = document.getElementById("course");
-
-      courses.forEach((item) => {
-        const div = document.createElement("div");
-        div.innerHTML = `<div>${item.name}</div>`;
-
-        course.appendChild(div);
-      });
-    </script>
   </body>
 </html>

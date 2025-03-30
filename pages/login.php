@@ -1,47 +1,71 @@
 <?php
 session_start();
 
-// Nếu đã đăng nhập, chuyển hướng về profile.php
-if (isset($_SESSION['email'])) {
-    header('Location: profile.php');
+require_once __DIR__ . '/../connect.php';
+require_once __DIR__ . '/admin.php';
+
+
+use Connect\Connection;
+use Admin\User;
+// use mysqli;
+
+$conn = Connection::connect();
+
+function cleanInput($input)
+{
+    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+    $input = cleanInput($_POST["email"]);
+    $password = cleanInput($_POST["password"]);
+
+    // Kiểm tra xem người dùng nhập email hay username
+    if (filter_var($input, FILTER_VALIDATE_EMAIL)) {
+        $email = $input;
+        $username = null; // Không cần username
+    } else {
+        $email = null; // Không cần email
+        $username = $input;
+    }
+
+    // Tạo object User
+    $user = new User($conn, $username, $email, $password);
+
+    // * Lưu người dùng đăng nhập hiện tại vào phiên làm việc
+    $_SESSION["username"] = $user->getUsername();
+    $_SESSION["email"] = $user->getEmail();
+    $_SESSION["isAdmin"] = $user->getIsAdmin(); // Lưu trạng thái admin vào session
+
+    // * Lưu vào COOKIE (thời gian sống 7 ngày)
+    $expiry = time() + (7 * 24 * 60 * 60); // 7 ngày
+    setcookie("username", $user->getUsername(), $expiry, "/");
+    setcookie("email", $user->getEmail(), $expiry, "/");
+    setcookie("isAdmin", $user->getIsAdmin(), $expiry, "/");
+
+    // Kiểm tra người dùng đã tồn tại chưa
+    // trả về false nếu không tồn tại
+    if (!$user->checkUserNotExists()) { // Nếu không tìm thấy user
+        header('Content-Type: application/json');
+        echo json_encode(["error" => "User does not exist"]);
+        exit();
+    }
+
+    if ($user->verifyLogin($password)) {
+        echo json_encode(["error" => "Incorrect password"]);
+        exit();
+    }
+
+    if ($user->getIsAdmin()) {
+        header('Content-Type: application/json');
+        echo json_encode(["success" => true, "redirect" => "admin_dashboard.php"]);
+        exit();
+    }
+
+    echo json_encode(["success" => true, "redirect" => "../index.php"]);
     exit();
 }
-
-// Kiểm tra nếu form được gửi
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
-
-    // Kiểm tra xem session `users` có tồn tại không
-    if (!isset($_SESSION['users'])) {
-        $_SESSION['error'] = "Không có tài khoản nào được đăng ký!";
-        header("Location: login.php");
-        exit();
-    }
-
-    $foundUser = null;
-
-    // Duyệt qua danh sách users để kiểm tra đăng nhập
-    foreach ($_SESSION['users'] as $user) {
-        if ($user['email'] === $email && password_verify($password, $user['password'])) {
-            $foundUser = $user;
-            break;
-        }
-    }
-
-    if ($foundUser) {
-        $_SESSION['email'] = $foundUser['email'];
-        $_SESSION['username'] = $foundUser['username']; // Lưu thêm username nếu cần
-        header('Location: ../index.php');
-        exit();
-    } else {
-        $_SESSION['error'] = "Sai thông tin đăng nhập!";
-        header("Location: login.php"); // Chuyển hướng lại để tránh lỗi resubmission
-        exit();
-    }
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,31 +130,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
         <div class="relative space-y-4 bg-form mx-4 p-4 rounded-3xl w-full min-w-[300px] max-w-[400px] text-normal">
             <div class="flex justify-center items-center">
-                <button class="cursor-pointer">
-                    <a href="../index.php"><img src="../assets/images/logo/logo.png" alt="logo"></a>
-                </button>
+                <a href="../index.php"><img src="../assets/images/logo/logo.png" alt="logo"></a>
             </div>
 
             <form action="login.php"
                 id="login-form"
                 method="post"
                 class="flex flex-col space-y-2">
-                <label for="email" id="label-email" class="relative pl-2 font-[exo2-bold]">E-mail</label>
+                <label for="email" id="label-email" class="relative pl-2 font-[exo2-bold]">E-mail or Username</label>
                 <input
                     id="email"
                     type="text"
                     name="email"
-                    placeholder="@gmail.com"
-                    class="bg-input mb-4 p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
+                    class="bg-input p-2 border-[1px] border-input rounded-lg focus:outline-none h-8">
 
                 <!-- * input password -->
-                <label for="password" id="label-password" class="pl-2 font-[exo2-bold]">Password</label>
+                <label for="password" id="label-password" class="mt-4 pl-2 font-[exo2-bold]">Password</label>
                 <div class="relative w-full">
                     <input
                         id="password"
                         type="password"
                         name="password"
-                        class="bg-input mb-4 py-2 pr-10 pl-2 border-[1px] border-input rounded-lg focus:outline-none w-full h-8">
+                        class="bg-input py-2 pr-10 pl-2 border-[1px] border-input rounded-lg focus:outline-none w-full h-8">
 
                     <svg
                         id="show-password"
@@ -174,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                     });
                 </script>
 
-                <div class="flex justify-end mb-4"><a href="#" class="block w-fit hover-text-note text-note text-sm">Forgot Password?</a></div>
+                <div class="flex justify-end mt-4 mb-4"><a href="#" class="block w-fit hover-text-note text-note text-sm">Forgot Password?</a></div>
                 <p class="text-note text-center">Login with social accounts</p>
                 <div class="flex justify-evenly items-center mb-4">
                     <button class="cursor-pointer">
@@ -205,37 +226,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             </form>
 
             <script>
-                document.getElementById("login-form").addEventListener("submit", (e) => {
-                    const email = document.getElementById("email").value;
-                    const password = document.getElementById("password").value;
+                document.addEventListener("DOMContentLoaded", function() {
+                    const form = document.getElementById("login-form");
                     const labelEmail = document.getElementById("label-email");
                     const labelPassword = document.getElementById("label-password");
+                    const errorMessage = document.getElementById("error-message"); // Thêm thẻ này trong HTML để hiển thị lỗi
 
-                    // * email
-                    if (email === "") {
-                        labelEmail.innerHTML = "E-mail <span class='text-red-400 text-xs'>Email is required</span>";
-                        e.preventDefault();
-                    } else {
-                        labelEmail.innerHTML = "E-mail";
-                    }
+                    form.addEventListener("submit", async function(e) {
+                        e.preventDefault(); // Ngăn chặn form gửi đi mặc định
 
-                    // else if (email !== "baominh@gmail.com") {
-                    //     labelEmail.innerHTML = "E-mail <span class='text-red-400 text-xs'>Email does not exit</span>";
-                    //     e.preventDefault();
-                    // } 
+                        // Lấy giá trị khi người dùng nhấn submit
+                        const emailOrUsername = document.getElementById("email").value.trim();
+                        const password = document.getElementById("password").value.trim();
 
-                    // * password
-                    if (password === "") {
-                        labelPassword.innerHTML = "Password <span class='text-red-400 text-xs'>Password is required</span>";
-                        e.preventDefault();
-                    } else {
-                        labelPassword.innerHTML = "Password";
-                    }
+                        let hasError = false;
 
-                    // else if (password !== "12345678") {
-                    //     labelPassword.innerHTML = "Password <span class='text-red-400 text-xs'>Password is incorrect</span>";
-                    //     e.preventDefault();
-                    // }
+                        // * email or username validation
+                        if (emailOrUsername === "") {
+                            labelEmail.innerHTML = "E-mail or Username <span class='text-red-400 text-xs'>*</span>";
+                            hasError = true;
+                        } else {
+                            labelEmail.innerHTML = "E-mail or Username";
+                        }
+
+                        // * password validation
+                        if (password === "") {
+                            labelPassword.innerHTML = "Password <span class='text-red-400 text-xs'>*</span>";
+                            hasError = true;
+                        } else {
+                            labelPassword.innerHTML = "Password";
+                        }
+
+                        if (hasError) return;
+
+                        try {
+                            let response = await fetch("login.php", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/x-www-form-urlencoded"
+                                },
+                                body: `email=${encodeURIComponent(emailOrUsername)}&password=${encodeURIComponent(password)}&submit=1`,
+                            });
+
+                            // Kiểm tra xem phản hồi có phải JSON không
+                            let text = await response.text();
+                            let result;
+                            try {
+                                result = JSON.parse(text);
+                            } catch (error) {
+                                console.error("Not JSON:", text);
+                                return;
+                            }
+
+                            // Xử lý lỗi từ server
+                            if (result.error) {
+                                if (result.error.includes("User does not exist")) {
+                                    labelEmail.innerHTML = "E-mail or Username <span class='text-red-400 text-xs'>does not exist</span>";
+                                }
+                                if (result.error.includes("Incorrect password")) {
+                                    labelPassword.innerHTML = "Password <span class='text-red-400 text-xs'>is incorrect</span>";
+                                }
+                                return; // Dừng lại nếu có lỗi
+                            }
+
+                            // Nếu đăng nhập thành công, chuyển hướng đến trang chủ
+                            if (result.success) {
+                                window.location.href = result.redirect; // Chuyển hướng sang trang chủ (hoặc trang phù hợp)
+                            }
+
+                        } catch (error) {
+                            console.error("Lỗi khi gửi request:", error);
+                        }
+
+                    });
                 });
             </script>
 

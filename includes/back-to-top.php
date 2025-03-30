@@ -1,7 +1,7 @@
 <div class="right-0 bottom-0 fixed -translate-x-4 -translate-y-7">
     <div
         id="back-to-top"
-        class="group relative bg-[#120e1e] hover:bg-transparent opacity-60 hover:opacity-100 border-1 border-input rounded-full w-[50px] h-[50px] active:scale-95 transition-all duration-200 ease-in-out cursor-pointer box">
+        class="group hidden relative bg-[#120e1e] hover:bg-transparent opacity-60 hover:opacity-100 border-1 border-input rounded-full w-[50px] h-[50px] active:scale-95 transition-all duration-200 ease-in-out cursor-pointer box">
         <button
             class="group top-1/2 left-1/2 absolute bg-transparent border-0 rounded-full -translate-x-1/2 -translate-y-1/2 cursor-pointer transform button">
             <svg
@@ -9,7 +9,7 @@
                 width="35"
                 height="35"
                 fill=""
-                class="fill-white bi-arrow-up-short transition-all duration-300 ease-in-out bi"
+                class="fill-white transition-all duration-300 ease-in-out bi-arrow-up-short bi"
                 viewBox="0 0 16 16">
                 <path
                     fill-rule="evenodd"
@@ -28,6 +28,15 @@
         </div>
     </div>
     <script>
+        const backToTop = document.getElementById("back-to-top");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) { // Hiện nút khi cuộn xuống hơn 100px
+                backToTop.classList.remove("hidden");
+            } else {
+                backToTop.classList.add("hidden");
+            }
+        });
+
         document.getElementById("back-to-top").addEventListener("click", () => {
             window.scrollTo({
                 top: 0,

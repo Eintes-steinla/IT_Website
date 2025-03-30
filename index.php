@@ -1,11 +1,27 @@
 <?php
-// if (isset($_GET['page'])) {
-//     switch ($_GET['page']) {
-//         case 'login':
-//             include '../pages/login.php';
-//             break;
-//     }
-// }
+session_start();
+
+// Kiểm tra nếu SESSION hoặc COOKIE tồn tại, nếu không thì chuyển hướng đến login
+if (
+    (!isset($_SESSION["username"]) || !isset($_SESSION["email"])) &&
+    (!isset($_COOKIE["username"]) || !isset($_COOKIE["email"]))
+) {
+    header("Location: ./pages/login.php");
+    exit();
+}
+
+// Nếu chỉ có cookie mà không có session, khôi phục session từ cookie
+if (!isset($_SESSION["username"]) && isset($_COOKIE["username"])) {
+    $_SESSION["username"] = $_COOKIE["username"];
+}
+if (!isset($_SESSION["email"]) && isset($_COOKIE["email"])) {
+    $_SESSION["email"] = $_COOKIE["email"];
+}
+if (!isset($_SESSION["isAdmin"]) && isset($_COOKIE["isAdmin"])) {
+    $_SESSION["isAdmin"] = $_COOKIE["isAdmin"];
+}
+
+// session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -54,10 +70,12 @@
 
 <body class="font-[exo2-regular] space">
 
-    <?php include './includes/navbar.php' ?>
-    <?php include './includes/header.php' ?>
-    <?php include './includes/footer.php' ?>
-    <?php include './includes/back-to-top.php' ?>
+    <?php
+    include './includes/navbar.php';
+    include './includes/header.php';
+    include './includes/footer.php';
+    include './includes/back-to-top.php'
+    ?>
 
     <script src="./assets/js/main.js"></script>
 </body>

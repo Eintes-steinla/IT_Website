@@ -189,30 +189,29 @@ foreach ($courses as $course) {
 </head>
 
 <body class="h-full font-[exo2-regular]">
-    <!-- 
-    <div class="">
-        <div>
-            <img src="../assets/images/courses/cpp.png" alt="logo" class="w-[100px] h-[100px]">
-        </div>
+    div class="">
+    <div>
+        <img src="../assets/images/courses/cpp.png" alt="logo" class="w-[100px] h-[100px]">
+    </div>
 
-        <div>
-            <h2 class="font-bold text-2xl">C++ Programming</h2>
-            <p class="text-lg line-clamp-3">C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'. The language has expanded significantly over time, and modern C++ now has object-oriented, generic, and functional features in addition to facilities for low-level memory manipulation.</p>
-            <div class="flex justify-between">
-                <p class="text-lg">Price: $$value[3]</p>
-                <p class="text-lg">Rating: $value[4]</p>
-            </div>
+    <div>
+        <h2 class="font-bold text-2xl">C++ Programming</h2>
+        <p class="text-lg line-clamp-3">C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'. The language has expanded significantly over time, and modern C++ now has object-oriented, generic, and functional features in addition to facilities for low-level memory manipulation.</p>
+        <div class="flex justify-between">
+            <p class="text-lg">Price: $$value[3]</p>
+            <p class="text-lg">Rating: $value[4]</p>
         </div>
+    </div>
 
-        <div>
-            <div class="flex justify-between">
-                <p class="text-lg">Author: $value[5]</p>
-                <p class="text-lg">Lessons: $value[6]</p>
-                <p class="text-lg">Duration: $value[7] weeks</p>
-                <p class="text-lg">Level: $value[8]</p>
-            </div>
+    <div>
+        <div class="flex justify-between">
+            <p class="text-lg">Author: $value[5]</p>
+            <p class="text-lg">Lessons: $value[6]</p>
+            <p class="text-lg">Duration: $value[7] weeks</p>
+            <p class="text-lg">Level: $value[8]</p>
         </div>
-    </div> -->
+    </div>
+    </div>
 
 </body>
 
