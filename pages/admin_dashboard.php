@@ -6,6 +6,7 @@ require_once __DIR__ . '/admin.php';
 
 use Connect\Connection;
 use Admin\User;
+use Admin\SelectAll;
 
 $user = new User(Connection::connect(), $_SESSION['username'], $_SESSION['email'], '');
 
@@ -14,7 +15,9 @@ if (!$user->getIsAdmin()) {
     exit;
 }
 
-$tableUsers = $user->selectAll("users");
+$selectAll = new SelectAll();
+
+$tableUsers = $selectAll->selectAll("users");
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +60,7 @@ $tableUsers = $user->selectAll("users");
     <meta name="msapplication-TileImage" content="../assets/images/favicon/ms-icon-150x150.png">
     <meta name="msapplication-TileImage" content="../assets/images/favicon/ms-icon-310x310.png">
     <meta name="theme-color" content="#ffffff">
-    <title>coppy</title>
+    <title>Admin Dashboard</title>
 </head>
 
 <body class="flex justify-center items-center w-full h-fit font-[exo2-regular]">
@@ -75,6 +78,7 @@ $tableUsers = $user->selectAll("users");
                         <th class="px-6 py-3 font-[exo2-bold] text-white text-xs text-left uppercase tracking-wider">Username</th>
                         <th class="px-6 py-3 font-[exo2-bold] text-white text-xs text-left uppercase tracking-wider">Email</th>
                         <th class="px-6 py-3 font-[exo2-bold] text-white text-xs text-left uppercase tracking-wider">Role</th>
+                        <th class="px-6 py-3 font-[exo2-bold] text-white text-xs text-left uppercase tracking-wider">Register date</th>
                     </tr>';
                 echo '</thead>';
                 echo '<tbody classwhite">';
@@ -85,6 +89,7 @@ $tableUsers = $user->selectAll("users");
                     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row["username"] . '</td>';
                     echo '<td class="px-6 py-4 whitespace-nowrap">' . $row["email"] . '</td>';
                     echo '<td class="px-6 py-4 whitespace-nowrap">' . ($row["is_admin"] ? "Admin" : "User") . '</td>';
+                    echo '<td class="px-6 py-4 whitespace-nowrap">' . $row["register_date"] . '</td>';
                     echo '</tr>';
                 }
 

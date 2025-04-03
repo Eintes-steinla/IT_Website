@@ -692,3 +692,50 @@ button:hover .instagram-gradient {
     #285aeb 90%
   );
 }
+
+/* * wish list */
+@keyframes like-filled {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes like-celebrate {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.animate-like-filled {
+  animation: like-filled 1s;
+}
+
+.animate-like-celebrate {
+  animation: like-celebrate 0.5s forwards;
+}
+
+input:checked ~ div svg:nth-child(2) {
+  /* Chọn svg-filled */
+  display: block;
+}
+
+input:checked ~ div svg:nth-child(3) {
+  /* Chọn svg-celebrate */
+  display: block;
+}

@@ -7,6 +7,7 @@ require_once __DIR__ . '/../connect.php';
 use Connect\Connection;
 use mysqli;
 use mysqli_result;
+use mysqli_stmt;
 
 class User
 {
@@ -137,10 +138,70 @@ class User
         }
         return true; // Return true if no user found (will show incorrect password)
     }
+}
+class Courses
+{
+    private $conn;
+    private $courseName;
+    private $description;
 
+    public function __construct(mysqli $conn, $courseName, $description)
+    {
+        $this->conn = $conn;
+        $this->courseName = $courseName;
+        $this->description = $description;
+    }
+
+    public function createCourse()
+    {
+        $sql = "INSERT INTO courses (course_name, courses_description)
+                VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param(
+            "ss",
+            $this->courseName,
+            $this->description
+        );
+        return $stmt->execute() ? true : "Error creating course!";
+    }
+
+    public function getCourse($courseId)
+    {
+        $sql = "SELECT * FROM courses WHERE course_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $courseId);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
+    public function updateCourse($courseId)
+    {
+        $sql = "UPDATE courses SET course_name = ?, description = ?
+                WHERE course_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param(
+            "ssi",
+            $this->courseName,
+            $this->description,
+            $courseId
+        );
+        return $stmt->execute();
+    }
+
+    public function deleteCourse($courseId)
+    {
+        $sql = "DELETE FROM courses WHERE course_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $courseId);
+        return $stmt->execute();
+    }
+}
+
+class SelectAll
+{
     public static function selectAll($table, $dbname = "webphp")
     {
-        $validTables = ["users", "products", "orders"]; // Danh sách bảng hợp lệ
+        $validTables = ["users", "courses"]; // Danh sách bảng hợp lệ
         if (!in_array($table, $validTables)) {
             die("Bảng không hợp lệ!");
         }
